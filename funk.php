@@ -9,9 +9,24 @@ function teooriatulemus($id, $teooriatulemus)
     $kask->execute();
 
 }
+function sisestusnupp($eesnimi, $perekonnanimi)
+{
+    global $yhendus;
 
+    if (strlen($eesnimi) == 0 || strlen($perekonnanimi) == 0)
+    {
+    } elseif (is_numeric($eesnimi) || is_numeric($perekonnanimi))
+    {
+    }
+        $kask = $yhendus->prepare(
+            "INSERT INTO jalgrattaeksam(eesnimi, perekonnanimi) VALUES (?, ?)"
+        );
+        $kask->bind_param("ss", $eesnimi, $perekonnanimi);
+        $kask->execute();
+        header("Location: Teooriaeksam.php");
+        exit();
 
-
+}
 function kusututaPresident($id)
 {
     global $yhendus;

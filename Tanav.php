@@ -17,6 +17,8 @@ $kask->execute();
  $kask=$yhendus->prepare("SELECT id, eesnimi, perekonnanimi   FROM jalgrattaeksam WHERE slaalom=1 AND ringtee=1 AND t2nav=-1");  $kask->bind_result($id, $eesnimi, $perekonnanimi);
  $kask->execute();
 ?>
+
+
 <!doctype html>
 <html>
  <head>

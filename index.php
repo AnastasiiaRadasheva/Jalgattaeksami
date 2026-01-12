@@ -1,25 +1,12 @@
 <?php
 require("nav.php");
+require("funk.php");
 global $yhendus;
  require_once("konf.php");
-
-
-if (isset($_REQUEST["sisestusnupp"])) {
-    $eesnimi = $_REQUEST["eesnimi"];
-    $perekonnanimi = $_REQUEST["perekonnanimi"];
-    if (strlen($eesnimi) == 0 || strlen($perekonnanimi) == 0) {
-        $teade = "Nimi ei tohi olla tühi!";
-    } elseif (is_numeric($eesnimi) || is_numeric($perekonnanimi)) {
-        $teade = "Nimi ei tohi olla numbriline!";
-    } else {
-        $kask = $yhendus->prepare(
-            "INSERT INTO jalgrattaeksam(eesnimi, perekonnanimi) VALUES (?, ?)"
-        );
-        $kask->bind_param("ss", $eesnimi, $perekonnanimi);
-        $kask->execute();
-        header("Location: Teooriaeksam.php");
-        exit();
-    }
+if (isset($_REQUEST['sisestusnupp'])) {
+    sisestusnupp($_REQUEST['eesnimi'], $_REQUEST['perekonnanimi']);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
 }
 ?>
 

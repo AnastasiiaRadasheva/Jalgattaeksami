@@ -11,6 +11,8 @@ if (!empty($_REQUEST["teooriatulemus"])) {
     $teooriatulemus = $_REQUEST['teooriatulemus'];
     $id = $_REQUEST['id'];
     teooriatulemus($id, $teooriatulemus);
+
+
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
 }
