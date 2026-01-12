@@ -52,8 +52,6 @@ function vigane_id($id){
         $kask->execute();
     }
 }
-
-
 function korr($id)
 {
     global $yhendus;
@@ -78,7 +76,6 @@ function tanavkorras($id)
     $kask->bind_param("i", $id);
     $kask->execute();
 }
-
 function tanavviga($id)
 {
     global $yhendus;
