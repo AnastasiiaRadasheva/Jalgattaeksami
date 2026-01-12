@@ -1,12 +1,16 @@
 <?php
 require("nav.php");
+require("funk.php");
 global $yhendus;
  require_once("konf.php");
 
 
 
-if (isset($_REQUEST['teooriatulemus'])) {
-    teooriatulemus($_REQUEST['teooriatulemus']);
+if (!empty($_REQUEST["teooriatulemus"])) {
+
+    $teooriatulemus = $_REQUEST['teooriatulemus'];
+    $id = $_REQUEST['id'];
+    teooriatulemus($id, $teooriatulemus);
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
 }
