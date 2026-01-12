@@ -27,6 +27,11 @@ $kask->execute();
  <body>
  <h1>Tänavasõit</h1>
  <table>
+     <tr>
+         <td>Eesnimi</td>
+         <td>Perekonnanimi</td>
+         <td>Status</td>
+     </tr>
  <?php
  while($kask->fetch()){
  echo " 

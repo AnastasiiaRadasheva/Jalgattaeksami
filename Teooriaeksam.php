@@ -20,7 +20,13 @@ FROM jalgrattaeksam WHERE teooriatulemus=-1");
  <title>Teooriaeksam</title>
  </head>
  <body>
+ <h1>Teooriaeksam</h1>
  <table>
+     <tr>
+         <td>Eesnimi</td>
+         <td>Perekonnanimi</td>
+         <td>Teooriatulemus</td>
+     </tr>
  <?php
  while($kask->fetch()){
  echo " 

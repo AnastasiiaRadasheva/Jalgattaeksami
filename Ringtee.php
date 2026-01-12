@@ -14,7 +14,8 @@ if(!empty($_REQUEST["vigane_id"])){
     $kask->bind_param("i", $_REQUEST["vigane_id"]);
     $kask->execute();
 }
-$kask=$yhendus->prepare("SELECT id, eesnimi, perekonnanimi   FROM jalgrattaeksam WHERE teooriatulemus>=9 AND ringtee=-1");  $kask->bind_result($id, $eesnimi, $perekonnanimi);
+$kask=$yhendus->prepare("SELECT id, eesnimi, perekonnanimi, teooriatulemus   FROM jalgrattaeksam WHERE teooriatulemus>=9 AND ringtee=-1");
+$kask->bind_result($id, $eesnimi, $perekonnanimi, $teooriatulemus);
 $kask->execute();
 ?>
 <!doctype html>
@@ -27,12 +28,19 @@ $kask->execute();
 <body>
 <h1>Ringtee</h1>
 <table>
+    <tr>
+        <td>Eesnimi</td>
+        <td>Perekonnanimi</td>
+        <td>Teooriatulemus</td>
+        <td>Status</td>
+    </tr>
     <?php
     while($kask->fetch()){
         echo "
  <tr> 
  <td>$eesnimi</td> 
  <td>$perekonnanimi</td> 
+ <td>$teooriatulemus</td>
  <td> 
  <a href='?korras_id=$id'>Korras</a> 
  <a href='?vigane_id=$id'>Ebaõnnestunud</a> 
