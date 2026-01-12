@@ -1,5 +1,6 @@
 <?php
 global $yhendus;
+require("nav.php");
 require_once("konf.php");
 if(!empty($_REQUEST["vormistamine_id"])){
     $kask=$yhendus->prepare(
@@ -23,6 +24,7 @@ function asenda($nr){
 <!doctype html>
 <html>
 <head>
+
     <title>Lõpetamine</title>
 </head>
 <body>

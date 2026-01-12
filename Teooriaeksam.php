@@ -1,4 +1,5 @@
 <?php
+require("nav.php");
 global $yhendus;
  require_once("konf.php");
  if(!empty($_REQUEST["teooriatulemus"])){
