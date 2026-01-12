@@ -9,3 +9,9 @@ CREATE TABLE jalgrattaeksam(
  t2nav INT DEFAULT -1,
  luba INT DEFAULT -1
 );
+
+
+//Taotleja registreerimine
+INSERT INTO jalgrattaeksam (eesnimi, perekonnanimi) VALUES ('Juku', 'Juurikas');
+INSERT INTO jalgrattaeksam (eesnimi, perekonnanimi) VALUES ('Kati', 'Tamm');
+ INSERT INTO jalgrattaeksam (eesnimi, perekonnanimi) VALUES ('Mati', 'Kask');
