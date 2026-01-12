@@ -1,0 +1,11 @@
+//Andmebaasiprogrammile tabeli loomisel arusaadavaks SQL-lauseks on
+CREATE TABLE jalgrattaeksam(
+ id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ eesnimi VARCHAR(30),
+ perekonnanimi VARCHAR(30),
+ teooriatulemus INT DEFAULT -1,
+ slaalom INT DEFAULT -1,
+ ringtee INT DEFAULT -1,
+ t2nav INT DEFAULT -1,
+ luba INT DEFAULT -1
+);
