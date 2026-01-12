@@ -15,3 +15,25 @@ CREATE TABLE jalgrattaeksam(
 INSERT INTO jalgrattaeksam (eesnimi, perekonnanimi) VALUES ('Juku', 'Juurikas');
 INSERT INTO jalgrattaeksam (eesnimi, perekonnanimi) VALUES ('Kati', 'Tamm');
  INSERT INTO jalgrattaeksam (eesnimi, perekonnanimi) VALUES ('Mati', 'Kask');
+
+//Teooriaeksamil loetelu eksamineeritavatest, kes pole veel teooriaeksamil tulemust saanud.
+
+ SELECT id, eesnimi, perekonnanimi FROM jalgrattaeksam WHERE
+
+//teooriatulemus=-1; Teooriaeksami tulemuse sisestamine
+ UPDATE jalgrattaeksam SET teooriatulemus=9 WHERE id=1;
+ UPDATE jalgrattaeksam SET teooriatulemus=10 WHERE id=2;
+ UPDATE jalgrattaeksam SET teooriatulemus=10 WHERE id=3;
+
+
+//Slaalomipunkti edukalt läbituks märkimine
+UPDATE jalgrattaeksam SET slaalom=1 WHERE id=2;
+
+//Ringteepunkti edukalt läbituks märkimine
+UPDATE jalgrattaeksam SET ringtee=1 WHERE id=2;
+
+//Tänavasõidueksami määramine sooritatuks:
+UPDATE jalgrattaeksam SET t2nav=1 WHERE id=2;
+
+//Lubade väljastamise märkimine:
+UPDATE jalgrattaeksam SET luba=1 WHERE id=2
