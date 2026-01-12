@@ -70,5 +70,20 @@ function viga($id)
     $kask->bind_param("i", $id);
     $kask->execute();
 }
+function tanavkorras($id)
+{
+    global $yhendus;
+    $kask=$yhendus->prepare(
+        "UPDATE jalgrattaeksam SET ringtee=1 WHERE id=?");
+    $kask->bind_param("i", $id);
+    $kask->execute();
+}
 
-
+function tanavviga($id)
+{
+    global $yhendus;
+    $kask=$yhendus->prepare(
+    "UPDATE jalgrattaeksam SET ringtee=2 WHERE id=?");
+    $kask->bind_param("i", $id);
+    $kask->execute();
+}

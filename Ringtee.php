@@ -4,29 +4,15 @@ global $yhendus;
 require("funk.php");
 require_once("konf.php");
 
-if (isset($_REQUEST['korras_id'])) {
-    korras_id($_REQUEST['korras_id']);
+if (isset($_REQUEST['tanavkorras'])) {
+    tanavkorras($_REQUEST['tanavkorras']);
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
 }
-if (isset($_REQUEST['vigane_id'])) {
-    vigane_id($_REQUEST['korras_id']);
+if (isset($_REQUEST['tanavviga'])) {
+    tanavviga($_REQUEST['tanavviga']);
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
-}
-
-
-if(!empty($_REQUEST["korras_id"])){
-    $kask=$yhendus->prepare(
-        "UPDATE jalgrattaeksam SET ringtee=1 WHERE id=?");
-    $kask->bind_param("i", $_REQUEST["korras_id"]);
-    $kask->execute();
-}
-if(!empty($_REQUEST["vigane_id"])){
-    $kask=$yhendus->prepare(
-        "UPDATE jalgrattaeksam SET ringtee=2 WHERE id=?");
-    $kask->bind_param("i", $_REQUEST["vigane_id"]);
-    $kask->execute();
 }
 
 
@@ -58,8 +44,8 @@ $kask->execute();
  <td>$perekonnanimi</td> 
  <td>$teooriatulemus</td>
  <td> 
- <a href='?korras_id=$id'>Korras</a> 
- <a href='?vigane_id=$id'>Ebaõnnestunud</a> 
+ <a href='?tanavkorras=$id'>Korras</a> 
+ <a href='?tanavviga=$id'>Ebaõnnestunud</a> 
  </td> 
 </tr> 
  ";
