@@ -6,7 +6,8 @@ global $yhendus;
  "UPDATE jalgrattaeksam SET teooriatulemus=? WHERE id=?");
 $kask->bind_param("ii", $_REQUEST["teooriatulemus"], $_REQUEST["id"]); $kask->execute();
  }
- $kask=$yhendus->prepare("SELECT id, eesnimi, perekonnanimi   FROM jalgrattaeksam WHERE teooriatulemus=-1");
+ $kask=$yhendus->prepare("SELECT id, eesnimi, perekonnanimi 
+FROM jalgrattaeksam WHERE teooriatulemus=-1");
  $kask->bind_result($id, $eesnimi, $perekonnanimi);
  $kask->execute();
 ?>
