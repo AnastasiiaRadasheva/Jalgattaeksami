@@ -1,4 +1,5 @@
 <?php
+require ('funk.php');
 global $yhendus;
 require("nav.php");
 require_once("konf.php");
@@ -8,13 +9,19 @@ if(!empty($_REQUEST["vormistamine_id"])){
     $kask->bind_param("i", $_REQUEST["vormistamine_id"]);
     $kask->execute();
 }
+
+
+if (isset($_REQUEST['kusututaPresident'])) {
+    kusututaPresident($_REQUEST['kusututaPresident']);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+
 $kask=$yhendus->prepare(
     "SELECT id, eesnimi, perekonnanimi, teooriatulemus,  
  slaalom, ringtee, t2nav, luba FROM jalgrattaeksam;");
 $kask->bind_result($id, $eesnimi, $perekonnanimi, $teooriatulemus,   $slaalom, $ringtee, $t2nav, $luba);
 $kask->execute();
-
-
 
 
 function asenda($nr){
@@ -41,12 +48,14 @@ function asenda($nr){
         <th>Ringtee</th>
         <th>Tänavasõit</th>
         <th>Lubade väljastus</th>
+        <th>Kustuta õpilane</th>
     </tr>
     <?php
     while($kask->fetch()){
         $asendatud_slaalom=asenda($slaalom);
         $asendatud_ringtee=asenda($ringtee);
         $asendatud_t2nav=asenda($t2nav);
+        $kustutalink = "<a href='?kusututaPresident=$id'>Eemalda</a>";
         $loalahter=".";
         if($luba==1){$loalahter="Väljastatud";}
         if($luba==-1 and $t2nav==1){
@@ -60,6 +69,7 @@ function asenda($nr){
  <td>$asendatud_ringtee</td> 
  <td>$asendatud_t2nav</td> 
  <td>$loalahter</td> 
+ <td>$kustutalink</td>
  </tr> 
  ";
     }

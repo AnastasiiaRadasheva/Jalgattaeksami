@@ -2,11 +2,16 @@
 require("nav.php");
 global $yhendus;
  require_once("konf.php");
- if(!empty($_REQUEST["teooriatulemus"])){
- $kask=$yhendus->prepare(
- "UPDATE jalgrattaeksam SET teooriatulemus=? WHERE id=?");
-$kask->bind_param("ii", $_REQUEST["teooriatulemus"], $_REQUEST["id"]); $kask->execute();
- }
+
+
+
+if (isset($_REQUEST['teooriatulemus'])) {
+    teooriatulemus($_REQUEST['teooriatulemus']);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+
+
  $kask=$yhendus->prepare("SELECT id, eesnimi, perekonnanimi 
 FROM jalgrattaeksam WHERE teooriatulemus=-1");
  $kask->bind_result($id, $eesnimi, $perekonnanimi);
