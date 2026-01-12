@@ -7,7 +7,9 @@ global $yhendus;
  "INSERT INTO jalgrattaeksam(eesnimi, perekonnanimi) VALUES (?, ?)");
  $kask->bind_param("ss", $_REQUEST["eesnimi"], $_REQUEST["perekonnanimi"]); $kask->execute();
 $yhendus->close();
-header("Location: $_SERVER[PHP_SELF]?lisatudeesnimi=$_REQUEST[eesnimi]"); exit();
+header("Location: $_SERVER[PHP_SELF]?lisatudeesnimi=$_REQUEST[eesnimi]");
+     header("Location: $_SERVER[PHP_SELF]");
+     exit();
  }
 ?>
 <!doctype html>
