@@ -24,7 +24,7 @@ function asenda($nr){
 <!doctype html>
 <html>
 <head>
-
+    <link rel="stylesheet" href="style.css">
     <title>Lõpetamine</title>
 </head>
 <body>

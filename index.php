@@ -13,6 +13,8 @@ header("Location: $_SERVER[PHP_SELF]?lisatudeesnimi=$_REQUEST[eesnimi]"); exit()
 <!doctype html>
 <html>
  <head>
+
+     <link rel="stylesheet" href="style.css">
  <title>Kasutaja registreerimine</title>
  </head>
  <body>

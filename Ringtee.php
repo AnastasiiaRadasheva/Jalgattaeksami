@@ -20,6 +20,8 @@ $kask->execute();
 <!doctype html>
 <html>
 <head>
+
+    <link rel="stylesheet" href="style.css">
     <title>Ringtee</title>
 </head>
 <body>

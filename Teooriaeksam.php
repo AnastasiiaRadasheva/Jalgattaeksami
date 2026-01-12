@@ -15,6 +15,8 @@ FROM jalgrattaeksam WHERE teooriatulemus=-1");
 <!doctype html>
 <html>
  <head>
+
+     <link rel="stylesheet" href="style.css">
  <title>Teooriaeksam</title>
  </head>
  <body>
