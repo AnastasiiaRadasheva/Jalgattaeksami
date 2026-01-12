@@ -1,6 +1,6 @@
 <?php
 require_once("konf.php");
-function teooriatulemus($id, $teooriatulemus)
+function teooriatulemus( $teooriatulemus, $id)
 {
     global $yhendus;
     $kask=$yhendus->prepare(
@@ -52,3 +52,23 @@ function vigane_id($id){
         $kask->execute();
     }
 }
+
+
+function korr($id)
+{
+    global $yhendus;
+    $kask=$yhendus->prepare(
+        "UPDATE jalgrattaeksam SET t2nav=1 WHERE id=?");
+    $kask->bind_param("i", $id);
+    $kask->execute();
+}
+function viga($id)
+{
+    global $yhendus;
+    $kask=$yhendus->prepare(
+        "UPDATE jalgrattaeksam SET t2nav=2 WHERE id=?");
+    $kask->bind_param("i", $id);
+    $kask->execute();
+}
+
+

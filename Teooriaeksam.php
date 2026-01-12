@@ -4,18 +4,12 @@ require("funk.php");
 global $yhendus;
  require_once("konf.php");
 
-
-
 if (!empty($_REQUEST["teooriatulemus"])) {
-
-    $teooriatulemus = $_REQUEST['teooriatulemus'];
-    $id = $_REQUEST['id'];
-    teooriatulemus($id, $teooriatulemus);
-
-
+    teooriatulemus($_REQUEST['teooriatulemus'],  $_REQUEST['id']);
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
 }
+
 
 
  $kask=$yhendus->prepare("SELECT id, eesnimi, perekonnanimi 

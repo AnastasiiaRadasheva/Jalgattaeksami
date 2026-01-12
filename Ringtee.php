@@ -1,7 +1,21 @@
 <?php
 require("nav.php");
 global $yhendus;
+require("funk.php");
 require_once("konf.php");
+
+if (isset($_REQUEST['korras_id'])) {
+    korras_id($_REQUEST['korras_id']);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+if (isset($_REQUEST['vigane_id'])) {
+    vigane_id($_REQUEST['korras_id']);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+
+
 if(!empty($_REQUEST["korras_id"])){
     $kask=$yhendus->prepare(
         "UPDATE jalgrattaeksam SET ringtee=1 WHERE id=?");
@@ -14,6 +28,8 @@ if(!empty($_REQUEST["vigane_id"])){
     $kask->bind_param("i", $_REQUEST["vigane_id"]);
     $kask->execute();
 }
+
+
 $kask=$yhendus->prepare("SELECT id, eesnimi, perekonnanimi, teooriatulemus   FROM jalgrattaeksam WHERE teooriatulemus>=9 AND ringtee=-1");
 $kask->bind_result($id, $eesnimi, $perekonnanimi, $teooriatulemus);
 $kask->execute();

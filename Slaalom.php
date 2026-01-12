@@ -4,14 +4,11 @@ require("funk.php");
 global $yhendus;
 require_once("konf.php");
 
-
-
 if (isset($_REQUEST['korras_id'])) {
     korras_id($_REQUEST['korras_id']);
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
 }
-
 if (isset($_REQUEST['vigane_id'])) {
     vigane_id($_REQUEST['korras_id']);
     header("Location: " . $_SERVER['PHP_SELF']);
