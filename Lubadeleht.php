@@ -14,6 +14,9 @@ $kask=$yhendus->prepare(
 $kask->bind_result($id, $eesnimi, $perekonnanimi, $teooriatulemus,   $slaalom, $ringtee, $t2nav, $luba);
 $kask->execute();
 
+
+
+
 function asenda($nr){
     if($nr==-1){return ".";} //tegemata
     if($nr== 1){return "korras";}
